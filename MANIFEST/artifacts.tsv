@@ -1,0 +1,19 @@
+# 大文件清单
+
+不入库的产物文件。相对 `${DAEST_PREP_ROOT}`。
+
+| 文件 | 大小 | 产生命令 | 说明 |
+|---|---|---|---|
+| `output/9_movie/data_9class_movie.pkl` | 2.6 GB | `scripts/20_extract_9class.sh` | 52 人 × 28 视频 × 31 通道 × 7500 点 |
+| `output/9_communication/data_9class_communication.pkl` | 5.8 GB | `scripts/20_extract_9class.sh` | 118 人 × 28 × 31 × 7500 |
+| `output/8_movie_self/data_8class_movie_self.pkl` | 2.6 GB | `scripts/30_extract_8class.sh` | 52 人，自评 8 类标签 |
+| `output/8_communication_self/data_8class_communication_self.pkl` | 5.8 GB | `scripts/30_extract_8class.sh` | 118 人，自评 8 类标签 |
+| `output/movie/*.pkl` | ~50 MB × 52 | `scripts/10_run_preprocessing.sh` | 逐被试观影 |
+| `output/communication/*.pkl` | ~50 MB × 118 | `scripts/10_run_preprocessing.sh` | 逐被试讲述 |
+
+总计约 22 GB（4 个汇总 pkl）+ 8 GB（逐被试 pkl）。
+
+## 获取方式
+
+1. **重跑**：按 `scripts/` 入口顺序执行（需原始脑电 46 GB）
+2. **归档拷贝**：联系作者获取

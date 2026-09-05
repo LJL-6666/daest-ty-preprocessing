@@ -1,0 +1,4 @@
+id:80
+age:19
+gender:female
+hand:right

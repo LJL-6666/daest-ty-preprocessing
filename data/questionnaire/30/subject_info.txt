@@ -1,0 +1,4 @@
+id:30
+age:42
+gender:male
+hand:right
