@@ -2,6 +2,8 @@
 
 不入库的产物文件。相对 `${DAEST_PREP_ROOT}`。
 
+## TY 数据集
+
 | 文件 | 大小 | 产生命令 | 说明 |
 |---|---|---|---|
 | `output/9_movie/data_9class_movie.pkl` | 2.6 GB | `scripts/20_extract_9class.sh` | 52 人 × 28 视频 × 31 通道 × 7500 点 |
@@ -11,9 +13,15 @@
 | `output/movie/*.pkl` | ~50 MB × 52 | `scripts/10_run_preprocessing.sh` | 逐被试观影 |
 | `output/communication/*.pkl` | ~50 MB × 118 | `scripts/10_run_preprocessing.sh` | 逐被试讲述 |
 
-总计约 22 GB（4 个汇总 pkl）+ 8 GB（逐被试 pkl）。
+## FACED 数据集
+
+| 文件 | 大小 | 产生命令 | 说明 |
+|---|---|---|---|
+| `0.05–47 Hz_mat/processed_data/*.mat` | ~50 MB × 123 | `scripts/40_run_faced.sh` | 每被试一个 .mat |
+
+总计约 22 GB（TY 4 个汇总 pkl）+ 8 GB（TY 逐被试 pkl）+ 6 GB（FACED .mat）。
 
 ## 获取方式
 
-1. **重跑**：按 `scripts/` 入口顺序执行（需原始脑电 46 GB）
+1. **重跑**：按 `scripts/` 入口顺序执行（需原始脑电 46 GB + FACED .set）
 2. **归档拷贝**：联系作者获取

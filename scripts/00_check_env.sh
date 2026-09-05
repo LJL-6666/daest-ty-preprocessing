@@ -6,7 +6,7 @@ echo "=== 环境 ==="
 python -c "import mne, numpy, pandas, scipy, matplotlib; print(f'  mne {mne.__version__} / numpy {numpy.__version__} / pandas {pandas.__version__}')" || exit 1
 
 echo "=== 数据路径 ==="
-for v in DAEST_DATA_ROOT DAEST_PREP_ROOT; do
+for v in DAEST_DATA_ROOT DAEST_PREP_ROOT EEGLAB_DIR; do
   printf "  %-18s %s\n" "$v" "${!v:-❌ 未设置}"
 done
 
@@ -32,5 +32,25 @@ if [ -n "${DAEST_DATA_ROOT:-}" ]; then
     echo "  ✅ $Q_DIR ($((N-1)) 个被试目录)"
   else
     echo "  ❌ $Q_DIR 不存在"
+  fi
+fi
+
+echo "=== FACED 数据目录 ==="
+if [ -n "${DAEST_DATA_ROOT:-}" ]; then
+  FACED_DIR="${DAEST_DATA_ROOT}/data-faced/Cleaned_Data"
+  if [ -d "$FACED_DIR" ]; then
+    N=$(find "$FACED_DIR" -maxdepth 1 -name '*.set' | wc -l)
+    echo "  ✅ $FACED_DIR ($N 个 .set 文件)"
+  else
+    echo "  ❌ $FACED_DIR 不存在"
+  fi
+fi
+
+echo "=== EEGLAB 目录 ==="
+if [ -n "${EEGLAB_DIR:-}" ]; then
+  if [ -d "$EEGLAB_DIR" ]; then
+    echo "  ✅ $EEGLAB_DIR"
+  else
+    echo "  ❌ $EEGLAB_DIR 不存在"
   fi
 fi
