@@ -4,16 +4,24 @@
 
 | 数据 | 路径 | 大小 |
 |---|---|---|
-| 原始脑电 .bdf | `${DAEST_DATA_ROOT}/data-tongyong/原始数据/脑电近红外/标准脑电/` | 46 GB |
-| 问卷 CSV | 本仓库 `data/questionnaire/`（已收录） | 3.7 MB |
+| TY 原始脑电 .bdf | `${DAEST_DATA_ROOT}/data-tongyong/原始数据/脑电近红外/标准脑电/` | 46 GB |
+| TY 问卷 CSV | 本仓库 `data/questionnaire/`（已收录） | 3.7 MB |
+| FACED 原始 .set | `${DAEST_DATA_ROOT}/data-faced/Cleaned_Data/` | ~20 GB |
+| FACED 播放顺序 | `${DAEST_DATA_ROOT}/data-faced/Data/subXXX/After_remarks.mat` | — |
 
-## 原始脑电格式
+## TY 原始脑电格式
 
 - 每个被试一个目录，内含 `data*.bdf` + `evt*.bdf` 或 `data_raw.fif`
 - 第一批（001–047）：μV 单位
 - 第二批（048+）：V 单位
 - 观影任务：触发码标记视频开始
 - 讲述任务：触发码 22 标记视频开始
+
+## FACED 原始数据格式
+
+- EEGLAB .set 文件，每被试 28 个段（`subXXX-YY_RELAX.set`）
+- 播放顺序从 `After_remarks.mat` 的 `vid` 字段读取
+- 预处理需 MATLAB + EEGLAB
 
 ## 问卷 CSV 结构
 
