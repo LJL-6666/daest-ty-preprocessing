@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "DAEST · TY 情绪解码 · 预处理"
+message: "若使用本仓库的代码或数据，请引用。"
+type: software
+authors:
+  - family-names: "刘"
+    given-names: "嘉玲"
+    alias: LJL-6666
+repository-code: "https://github.com/LJL-6666/daest-ty-preprocessing"
+abstract: >-
+  TY 数据集 EEG 预处理流水线：原始脑电（0.05–47 Hz 滤波、250 Hz 降采样、
+  31 通道、28 视频）→ 建模可用 pkl（9 类素材标签 / 8 类自评标签）。
+  与 daest-ty-mainline 建模仓库联动。
+license: MIT
+date-released: "2026-09-04"
