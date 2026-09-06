@@ -30,11 +30,21 @@ TY 与 FACED 数据集 EEG 预处理流水线：原始脑电 → 建模可用 pk
 ```
 src/        9 个核心脚本（TY 预处理 + FACED 预处理 + 汇总）
 scripts/    4 个入口：00 验环境 → 10 TY 预处理 → 20 TY 9类 → 30 TY 8类自评 → 40 FACED
-data/       问卷 CSV（497 个文件，3.7 MB）
+data/       行为与问卷数据：3 名被试样例 + 列定义说明（完整数据依申请获取，见 data/README.md）
 results/    QC 摘要、跳过记录
 docs/       数据口径、与建模仓库衔接、预处理限制
 MANIFEST/   大文件清单、原始数据来源
 ```
+
+## 数据
+
+仓库内**不含完整的行为与问卷数据**。`data/example_questionnaire/` 只放了 3 名被试的
+脱敏样例，用于说明文件格式与 `videoIndex` 对齐逻辑；完整的 129 名被试数据依申请获取。
+
+- 列定义、缺失值约定、获取方式：[`data/README.md`](data/README.md)
+- 数据许可为 CC BY 4.0（[`data/LICENSE`](data/LICENSE)），与代码的 MIT 许可**不同**
+
+预处理流程本身读取的是 `DAEST_DATA_ROOT` 指向的原始数据目录，不依赖 `data/` 下的副本。
 
 ## 复现
 

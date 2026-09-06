@@ -1,0 +1,13 @@
+本目录（data/）下的数据以 Creative Commons Attribution 4.0 International
+(CC BY 4.0) 许可发布。
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+    中文说明：https://creativecommons.org/licenses/by/4.0/deed.zh
+
+您可以自由地共享与演绎这些数据，包括用于商业目的，但必须给出适当的署名、
+提供指向本许可的链接，并说明是否作了修改。
+
+署名请引用仓库根目录的 CITATION.cff。
+
+注意：本仓库根目录的 LICENSE（MIT）是软件许可，仅适用于代码，不适用于本目录
+下的数据。两者请分别遵守。
