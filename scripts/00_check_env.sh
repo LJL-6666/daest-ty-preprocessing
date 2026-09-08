@@ -3,10 +3,10 @@
 set -uo pipefail
 
 echo "=== 环境 ==="
-python -c "import mne, numpy, pandas, scipy, matplotlib; print(f'  mne {mne.__version__} / numpy {numpy.__version__} / pandas {pandas.__version__}')" || exit 1
+python -c "import mne, numpy, pandas, scipy, matplotlib, hdf5storage; print(f'  mne {mne.__version__} / numpy {numpy.__version__} / pandas {pandas.__version__}')" || exit 1
 
 echo "=== 数据路径 ==="
-for v in DAEST_DATA_ROOT DAEST_PREP_ROOT EEGLAB_DIR; do
+for v in DAEST_DATA_ROOT DAEST_PREP_ROOT; do
   printf "  %-18s %s\n" "$v" "${!v:-❌ 未设置}"
 done
 
@@ -35,22 +35,16 @@ if [ -n "${DAEST_DATA_ROOT:-}" ]; then
   fi
 fi
 
-echo "=== FACED 数据目录 ==="
+echo "=== FACED 原始数据（.bdf 链路，不需要 EEGLAB） ==="
 if [ -n "${DAEST_DATA_ROOT:-}" ]; then
-  FACED_DIR="${DAEST_DATA_ROOT}/data-faced/Cleaned_Data"
-  if [ -d "$FACED_DIR" ]; then
-    N=$(find "$FACED_DIR" -maxdepth 1 -name '*.set' | wc -l)
-    echo "  ✅ $FACED_DIR ($N 个 .set 文件)"
+  FACED_DATA="${DAEST_DATA_ROOT}/data-faced/Data"
+  if [ -d "$FACED_DATA" ]; then
+    N=$(find "$FACED_DATA" -maxdepth 1 -type d -name 'sub*' | wc -l)
+    NR=$(find "$FACED_DATA" -maxdepth 2 -name 'After_remarks.mat' | wc -l)
+    echo "  ✅ $FACED_DATA ($N 个被试目录, $NR 份 After_remarks.mat)"
   else
-    echo "  ❌ $FACED_DIR 不存在"
+    echo "  ❌ $FACED_DATA 不存在"
   fi
-fi
-
-echo "=== EEGLAB 目录 ==="
-if [ -n "${EEGLAB_DIR:-}" ]; then
-  if [ -d "$EEGLAB_DIR" ]; then
-    echo "  ✅ $EEGLAB_DIR"
-  else
-    echo "  ❌ $EEGLAB_DIR 不存在"
-  fi
+  REC="${DAEST_DATA_ROOT}/data-faced/一些背景/Recording_info.csv"
+  [ -f "$REC" ] && echo "  ✅ $REC" || echo "  ❌ $REC 不存在"
 fi

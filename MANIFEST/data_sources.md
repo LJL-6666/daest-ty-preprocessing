@@ -6,7 +6,8 @@
 |---|---|---|
 | TY 原始脑电 .bdf | `${DAEST_DATA_ROOT}/data-tongyong/原始数据/脑电近红外/标准脑电/` | 46 GB |
 | TY 问卷 CSV | 本仓库 `data/questionnaire/`（已收录） | 3.7 MB |
-| FACED 原始 .set | `${DAEST_DATA_ROOT}/data-faced/Cleaned_Data/` | ~20 GB |
+| FACED 原始 .bdf | `${DAEST_DATA_ROOT}/data-faced/Data/subXXX/{data.bdf, evt.bdf}` | ~40 GB |
+| FACED 被试清单 | `${DAEST_DATA_ROOT}/data-faced/一些背景/Recording_info.csv` | — |
 | FACED 播放顺序 | `${DAEST_DATA_ROOT}/data-faced/Data/subXXX/After_remarks.mat` | — |
 
 ## TY 原始脑电格式
@@ -19,9 +20,11 @@
 
 ## FACED 原始数据格式
 
-- EEGLAB .set 文件，每被试 28 个段（`subXXX-YY_RELAX.set`）
-- 播放顺序从 `After_remarks.mat` 的 `vid` 字段读取
-- 预处理需 MATLAB + EEGLAB
+- 每被试一个目录 `Data/subXXX/`，内含 `data.bdf` + `evt.bdf` + `After_remarks.mat`
+- 触发码：`event_id=102` 切分 30 s 片段；视频触发码为 `1..28`
+- 播放顺序从 `After_remarks.mat` 的 `vid` 字段读取，在 `data_concat` 中完成重排拼接
+- **预处理为纯 Python/MNE，不需要 MATLAB 或 EEGLAB**
+  （`legacy/` 下基于 `.set` 的 EEGLAB 旁支未用于任何已发表结果，见 `docs/04_版本溯源.md`）
 
 ## 问卷 CSV 结构
 
