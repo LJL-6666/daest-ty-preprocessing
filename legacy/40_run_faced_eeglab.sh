@@ -26,7 +26,7 @@ echo "EEGLAB:   $EEGLAB_DIR"
 # 步骤 1: 按播放顺序拼接 .set
 echo ""
 echo "=== 步骤 1: 拼接 .set ==="
-python src/faced_concat_by_vid.py \
+python legacy/faced_concat_by_vid.py \
   --eeglab "$EEGLAB_DIR" \
   || { echo "❌ 拼接失败"; exit 1; }
 

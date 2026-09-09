@@ -7,7 +7,7 @@
 #     -> src/convert_pkl_to_mat.py
 #     -> 0.05–47 Hz_mat/processed_data/subXXX.mat  （DAEST train_ext 的输入）
 #
-# 注：仓库 legacy/ 下的 faced_concat_by_vid*.py 是基于 EEGLAB .set 的旁支探索，
+# 注：仓库 legacy/ 下的 faced_concat_by_vid.py 是基于 EEGLAB .set 的旁支探索，
 #     产出时间晚于本链路的 pkl 两个月，未用于任何已发表结果。见 docs/04_版本溯源.md
 set -uo pipefail
 
