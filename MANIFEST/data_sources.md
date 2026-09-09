@@ -5,7 +5,7 @@
 | 数据 | 路径 | 大小 |
 |---|---|---|
 | TY 原始脑电 .bdf | `${DAEST_DATA_ROOT}/data-tongyong/原始数据/脑电近红外/标准脑电/` | 46 GB |
-| TY 问卷 CSV | 本仓库 `data/questionnaire/`（已收录） | 3.7 MB |
+| TY 问卷 CSV | `${DAEST_DATA_ROOT}/data-tongyong/原始数据/问卷/`（涉及被试信息，不随仓库分发；本仓库仅收录 3 名被试样例与列定义，见 `data/README.md`） | 3.7 MB |
 | FACED 原始 .bdf | `${DAEST_DATA_ROOT}/data-faced/Data/subXXX/{data.bdf, evt.bdf}` | ~40 GB |
 | FACED 被试清单 | `${DAEST_DATA_ROOT}/data-faced/一些背景/Recording_info.csv` | — |
 | FACED 播放顺序 | `${DAEST_DATA_ROOT}/data-faced/Data/subXXX/After_remarks.mat` | — |
